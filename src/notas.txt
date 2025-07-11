@@ -1,0 +1,185 @@
+Algunos codigos assci: 34", 39', 94^, 96`,60<, 61=, 62>, 63?, 123{, 124|, 125}, 91[, 93], 40(, 41) && ||
+&nbsp; (Espacio horizontal) ///  Mayuscula + Alt + F : Da formato al codigo.
+//#region  AGRUPGAR CODIGO EN UNA REGION.
+const amor = "HAIRO";
+//#endregion
+console.log(typeof vresult); // Me devuelve el tipo de variable que es.
+ctrl + ? : Marca como comentario.
+--------------------------------------------------------------
+yarn start:dev      <enter> : Para hechar a andar la aplicacion.
+------------------------------------------------------------------
+-------------------------------------
+docker-compose up -d      <enter>    : Para levantar la base de datos, y antes inicia docker desktop.
+-------------------------------------
+
+SECCION 7 MONGODB Y POKEDEX
+7-3 Inicio de proyecto
+1.50 Borramos las cosas que no necesitaremos o no vamos a ocupar.
+2.35 Configurar los formateadores del codigo. ctrl + shif + p 
+2.34 Para recargar el proyecto: ctrl + shiff + p y ejecutamos: reload windows <enter>
+3.55 Entra en modo de desarrollo y modo de estar pendiente de los cambios.
+7-4 Contenido Estatico.
+1.03 En la raiz del proyecto creo mi carpeta public.
+2.51 Configurando.
+3.03 lineas necesarias para servir un contenido estatico.
+3.15 Hay que añadir un paquete llamado: yarn add @nestjs/serve-static <enter>
+4.13 Los modulos siempre van en los imports.
+4.39 Los paquetes propios de node van al inicio.
+7-5 Global Prefix.
+
+00.25 creamos nuestra API.
+comando: nest g res pokemon --no-spec <enter>
+2.13 test:  localhost:3000/pokemon <enter>
+5.16 probando enlaces ...
+7-06 Docker - DockerCompose - MongoDB
+3.45 En el root de mi aplicacion creamos un archivo llamado: docker-compose.yaml <enter>
+contenido del archivo: 
+version: '3'
+
+services:
+  db: 
+    image: mongo:5
+    restart: always
+    ports:
+      -27017:27017
+    environment:
+      MONGODB_DATABASE: nest-pokemon
+    volumes:
+      -./mongo:/data/db
+
+
+7.57 para levantar el docker mongo:
+-------------------------------------
+docker-compose up -d <enter>  
+-------------------------------------
+Proceso Para que corra de manera ditach o desligada de esta terminal (segundo plano.).
+Solucion del Error: Asegúrate de que dentro de F:\Proyectos\NESTJS\03-pokedex exista un archivo llamado:
+docker-compose.yml  (Yo tenia una extension yaml erronea.).
+
+9.41: Software TablePlus: Para manejo de las base de datos. 
+URL: mongodb://localhost:27017/nest-pokemon 
+Hacer test de conexion, asegurence de que este en verde.
+
+7-6 REDME.MD : Es un archivo que da informacion a los demas developers (programadores) de las configuraciones y deamas.
+
+Nest- 7-08 Conectar Nest con Mongo.
+comando: yarn add @nestjs/mongoose mongoose <enter>
+2.43 Referencia a bd mongo en el archivo app.module.ts 
+4.56 Prueba con postman de conexion a base de datos.
+
+--------------------------------------------------------------------------------------------------
+Fraccion de un pequeño tutorial que habia hecho:
+8- Correr imagen en terminal con algunos parametros y guardar datos: 
+docker run -p 27017:27017 --name mydatabase mongo:latest <enter>: 
+8.0 correr imagen en segundo plano sin terminal activa pero uso la terminal para ejecutarlo:
+docker run -d -p 27019:27017 --name mydatabase3 mongo:latest <enter>
+Esto te da el id del proceso y ya puedes cerrar la terminal.
+
+9- instalar programa cliente  que me permita conectarme a la base de dato y ejecuta:
+localhost:27017 <enter>; localhost:27018 <enter>
+------------------------------------------------------------------------------------------------
+
+7-09 Crear esquemas y Modelos
+5.26 Trabajar con el esquema en una entity.
+5.43 Hacer relacion o conexion con la base de datos.
+9.13 Este .name sale de extender el documento.
+9.42 Si vamos a la aplicacion table plus, presiona ctrl + r le monstrara nuestro espacio de pokemon.
+9.51 Hay veces que no lo crea de manera automatica. 
+10.16 ya paso lo mas dificil, fin de este video.   (Todo bien por ahora.)
+
+7-10 Recibir y validar la data.
+00.39 tarea.
+3.08 Para ello vamos a ocupar o instalar Class Validator y class transformer.
+3.09 comando para hacer ambas instalaciones a la vez: yarn add class-validator class-transformer <enter>
+3.22 se hace una configuracion global que esta en el pdf al archivo main.ts:
+  app.useGlobalPipes(
+  new ValidationPipe({
+  whitelist: true,
+  forbidNonWhitelisted: true,
+  }));
+3.30 importar ValidationPipe del nestjs/common.
+4.56 Ahora se prueban los campos y sus validaciones en el postman u otro aplicacion de pruebas.
+5.17 El controlador no debe de tener mucha logica o programacion.
+6.00 Hay que crear mas validaciones para que no se repitan campos.
+
+7-11 Crear pokemon en base de datos.
+0.015 Como ya tenemos nuestro modelo, preparado, conectado y listo sera mas facil.
+0.24 Para esto vamos a hacer una inyeccion de dependencia en el constructor, alli solo se hacen las inyecciones.
+2.32 Las inserciones en la base de datos son asincronas.
+
+7-12 Responder un error especifico.
+4.58 En la aplicacion TablePlus (Manejo de bd) le doy click y delete a un registro, lo marcara rojo pero
+no lo Borramos para ello tendras que presionar ctrl + s y asi lo borrara.
+5.50 Muestra como grabar las peticiones en la aplicacion potsman.
+8.00 Puedes especificar codigo de error que quieras.
+8.45 @HttpCode(HttpStatus.) te da varios codigos de error mas usados si le das click te va a los tipicos status.
+
+Nest- 7-13 FindOneBy - Buscar por nombre, MongoId y no
+00.30 Formas de busquedas, por id, numero y nombre de pokemon.
+02.13 ctrl + click del controlador me lleva al servicio.
+04.50 En este punto dieron algunos errores: La variable pokemon, pero fue corregido colocando let pokemon: Pokemon | undefined;
+5.15 Funciona las busquedas pero cuando no existe el pokemon manda estatus 200 y no queremos eso, deberia ser un 404.
+05.27 Hacer verificacion por mongoId y por Name.
+// (isNaN(28)) Si esto no es un numero devuelve true, pero si es
+// un numero  con una negacion la hace positiva.
+// Numero
+   let pokemon: Pokemon | null = null;   // Garantizar que la variable sera usada.
+7.19 Es object valido ID.
+10.18 consultando.
+
+NEST 7-14 Actualizar Pokemon en base de datos
+3.20 el objeto pokemon conseguido de foundone es un objeto con propiedades de base de datos.
+3.58 name.toLowerCase() si el nombre viene en Mayusculas lo convierte a minuscula.
+4.37  await pokemon.updateOne(updatePokemonDto, { new: true }); : para devolver el nuevo objeto.
+pero este no funciona asi que se hace otra cosa. 
+6.30 Me quede aqui.
+
+Nest 7-15 Tarea - Validar valores unicos
+0.00 iniciando.
+02.30 Errores parecidos entonces soluciones parecidas.
+03.30 Crear metodo de erroes en mis servicios.
+5.27 Hay que tratar de tener codigo duplicado.
+
+Nest 7-16 Eliminar un Pokemon.
+01.17 Introduccion al tema de los custom pipe.
+
+Nest 7-17 CustomPipes - ParseMongoIdPipe
+00.00 comente linea de remove para practicas.
+01.54 Creacion de custom pipe.
+02.07 Lugar ideal para hacerlo. Debe estar en un lugar global.
+02.41 Esctructura recomendada de los modulos y demas.
+03.40 Generar un nuevo modulo para la creacion del pipe.
+03.41 nest g mo common <enter> crea la carpeta y el modulo.
+04.20 ahora creemos nuestro pipe.
+04.44 nest g pi common/pipes/parseMongoId --no-spec <enter> Para que no cree archivo de prueba.
+06.56 Grabamos los cambios y probamos.
+07.55 Recuerda los pipe transforman la data.
+09.33 codigo de eliminacion en el servio.
+
+Nest 7-18 Validar y eliminar en una sola consulta
+04.34 Se elimina el id pero si no existe manda un error o mensaje.
+
+Nest 7-19 Respaldar codigo fuente en GitHub.
+en el archivo .gitignore coloquen la carpeta de /mongo  para no respandar esta.
+Hay que tener obviamente una cuenta en GitHub.: https://github.com/dashboard
+enlace para crear nuevo repositorio en GitHub: https://github.com/new
+Comandos de GitHub:
+…or create a new repository on the command line
+echo "# nest-pokedex" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/heraldo28/nest-pokedex.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/heraldo28/nest-pokedex.git
+git branch -M main
+git push -u origin main
+
+02.55 en la terminal ejecutamos estos comandos:
+git add . <enter>
+git commit -m "Fin seccion 7" <enter>
+3.00 Ya tengo la fotografia de como quiero subirlo.
+
+

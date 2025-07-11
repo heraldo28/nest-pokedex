@@ -1,0 +1,32 @@
+@apiHome = http://localhost:3000
+
+// Api pruebas generles.
+
+GET {{apiHome}}
+
+
+
+
+POST {{apiHome}}/brands/
+content-type: application/json
+
+{
+    "name": "Honda"   
+}
+
+PATCH {{apiHome}}/brands/46a195f4-1cd9-4179-aeaa-83456bd53496
+Content-Type: application/json
+
+{
+  "name": "Mercedes Benz"   
+  
+}
+
+
+DELETE {{apiHome}}/brands/46a195f4-1cd9-4179-aeaa-83456bd53496
+
+//fINAL
+
+
+
+
