@@ -163,6 +163,7 @@ Nest 7-19 Respaldar codigo fuente en GitHub.
 en el archivo .gitignore coloquen la carpeta de /mongo  para no respandar esta.
 Hay que tener obviamente una cuenta en GitHub.: https://github.com/dashboard
 enlace para crear nuevo repositorio en GitHub: https://github.com/new
+
 Comandos de GitHub:
 …or create a new repository on the command line
 echo "# nest-pokedex" >> README.md
@@ -178,8 +179,24 @@ git branch -M main
 git push -u origin main
 
 02.55 en la terminal ejecutamos estos comandos:
+git init <enter> : inicia repositorio local en nuestro equipo.
 git add . <enter>
-git commit -m "Fin seccion 7" <enter>
-3.00 Ya tengo la fotografia de como quiero subirlo.
+git remote add origin https://github.com/heraldo28/nest-pokedex.git <enter> con esto vincula el repo local con el remoto.
+git status <enter> : para verificar si hay archivos que no estan siendo traqueados.
+git add . <enter> : agrega todos los archivos sin traquear.
+git commit -m "Fin seccion 7" <enter> guarda el repo y agrega comentario.
+git push <enter> para grabar en la nube. Pero si lanza un error le das al siguiten comando.
+git push --set-upstream origin master <enter>
+3.00 Ya tengo la fotografia de como quiero subirlo a github.
+3.03 Ahora pego el contenido que copie de la pagina web github en la terminal y enter.
+3.13 Al ser primera vez le pedira que se identifique en el navegador web.
+3.20 Al recargar la pagina web de github ya deberias ver tu repositorio aqui.
 
+Seccion 8
+Nest 8-03 
+00.20 Ver archivo readme, y levantar todoas las cosas.
+00.40 Asegurence que esta corriendo la aplicacion y puedan realizar peticiones.
 
+Nest 8-04 Crear modulo SEED.
+01.03 Crear un SEED para rellenar la base de datos.
+01.41 Generar estructura con el comando: nest g res seed --no-spec <enter>
