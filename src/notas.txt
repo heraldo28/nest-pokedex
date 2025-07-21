@@ -164,7 +164,7 @@ en el archivo .gitignore coloquen la carpeta de /mongo  para no respandar esta.
 Hay que tener obviamente una cuenta en GitHub.: https://github.com/dashboard
 enlace para crear nuevo repositorio en GitHub: https://github.com/new
 
-Comandos de GitHub:
+<<<<<<<<     Comandos de GitHub: >>>>>>>>
 …or create a new repository on the command line
 echo "# nest-pokedex" >> README.md
 git init
@@ -200,3 +200,31 @@ Nest 8-03
 Nest 8-04 Crear modulo SEED.
 01.03 Crear un SEED para rellenar la base de datos.
 01.41 Generar estructura con el comando: nest g res seed --no-spec <enter>
+02.31 Borre cosas que no necesito.
+03.33 En el Servicio retorna Seed Executed.
+04.04 Los controladores escuchan solicitudes y manejan respuestas.
+04.38 Prueba del servicio.
+
+Nest 8-5 Instalacion de Axios.
+Pueden usar el comando yarn add axios@0.27.2 o npm install axios@0.27.2.
+
+Nest 8-06 Realizar peticion http desde Nest
+00.57 Ojo el fetch solo funcionara si esta en la version 18 o superior de node.
+01.04 ejecuto el comando: node -v <enter> Para ver la version en la que estoy.
+01.51 si ejecutamos el seed y todo esta bien deveriamos ver en la terminal el 
+mensaej: [AsyncFunction: fetch] el cual me permite hacer peticiones http.
+
+04.39 llegamos al endpoint, traemos la data con axios y la reflejamos.
+05.28 Me gustaria tener tipado de datos de esta respuesta.
+06.18 Creo una interfaz para ponerle el tipo a la respuesta del endpoint.
+06.38 Previamente se instalo una extension Para crear la interfaz,
+hacemos Ctrl + Shift + p, elegimos Paste JSON as Code y ponemos un nombre <enter>
+07.12 results puede ser cambiado el nombre.
+
+07.27 PokeResponse se pone como generico y se importa de las interfaces.
+07.5 Si yo quiero el primer pokemon solo pongo el punto y listo: return data.results[0].name 
+08.18 Para terminar el video quiero barrer la data para mostrar por consola nombre y numero.
+
+8-07 Tarea - Insertar Pokemons por lote
+00.37 comando: git add . <enter> 
+00.38 comando: git commit -m "Antes de insertar por lote" <enter>

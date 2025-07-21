@@ -1,27 +1,28 @@
-@apiHome = http://localhost:3000/api/v2/pokemon
+@apiHome = http://localhost:3000/api/v2/
 // Api pruebas generles.
 // ctrl + alt + R Procesa la busqueda, primero subrayala.
 
-GET {{apiHome}}
-GET {{apiHome}}/685e8f612d2eab6149c7081b
-GET {{apiHome}}/2
-GET {{apiHome}}/666
+GET {{apiHome}}pokemon
+GET {{apiHome}}pokemon/685e8f612d2eab6149c7081b
+GET {{apiHome}}pokemon/2
+GET {{apiHome}}pokemon/666
+GET {{apiHome}}seed  
 
-POST {{apiHome}}
+POST {{apiHome}}pokemon
 content-type: application/json
 
-{   "no":2,
+{   "no":12,
     "name": "Pikachu12"   
 }
 
-PATCH  {{apiHome}}/685c403a871a5c06a1fc9c64
+PATCH  {{apiHome}}pokemon/685c403a871a5c06a1fc9c64
 content-type: application/json
 
 {   "no":1,
     "name": "Bulbasaur307"   
 }
 
-PATCH  {{apiHome}}/685c403a871a5c06a1fc9c64
+PATCH  {{apiHome}}pokemon/685c403a871a5c06a1fc9c64
 content-type: application/json
 
 {   "no":01
@@ -29,4 +30,5 @@ content-type: application/json
 }
 
 
-DELETE  {{apiHome}}/687104de8406817cdadbece8
+DELETE  {{apiHome}}pokemon/687104de8406817cdadbece8
+
