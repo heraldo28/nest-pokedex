@@ -11,8 +11,8 @@ GET {{apiHome}}seed
 POST {{apiHome}}pokemon
 content-type: application/json
 
-{   "no":12,
-    "name": "Pikachu12"   
+{   "no":12000,
+    "name": "Pikachu12000"   
 }
 
 PATCH  {{apiHome}}pokemon/685c403a871a5c06a1fc9c64

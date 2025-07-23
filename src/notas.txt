@@ -165,6 +165,7 @@ Hay que tener obviamente una cuenta en GitHub.: https://github.com/dashboard
 enlace para crear nuevo repositorio en GitHub: https://github.com/new
 
 <<<<<<<<     Comandos de GitHub: >>>>>>>>
+
 …or create a new repository on the command line
 echo "# nest-pokedex" >> README.md
 git init
@@ -178,6 +179,7 @@ git remote add origin https://github.com/heraldo28/nest-pokedex.git
 git branch -M main
 git push -u origin main
 
+-----------------------------------------------------------------------
 02.55 en la terminal ejecutamos estos comandos:
 git init <enter> : inicia repositorio local en nuestro equipo.
 git add . <enter>
@@ -185,12 +187,13 @@ git remote add origin https://github.com/heraldo28/nest-pokedex.git <enter> con 
 git status <enter> : para verificar si hay archivos que no estan siendo traqueados.
 git add . <enter> : agrega todos los archivos sin traquear.
 git commit -m "Fin seccion 7" <enter> guarda el repo y agrega comentario.
-git push <enter> para grabar en la nube. Pero si lanza un error le das al siguiten comando.
-git push --set-upstream origin master <enter>
+git push <enter> para grabar en la nube. Pero si lanza un error ejecutas: git push --set-upstream origin master <enter>
+git checkout -- . <enter> Revierte el codigo hasta el ultimo comit.
 3.00 Ya tengo la fotografia de como quiero subirlo a github.
 3.03 Ahora pego el contenido que copie de la pagina web github en la terminal y enter.
 3.13 Al ser primera vez le pedira que se identifique en el navegador web.
 3.20 Al recargar la pagina web de github ya deberias ver tu repositorio aqui.
+--------------------------------------------------------------------------------------
 
 Seccion 8
 Nest 8-03 
@@ -228,3 +231,17 @@ hacemos Ctrl + Shift + p, elegimos Paste JSON as Code y ponemos un nombre <enter
 8-07 Tarea - Insertar Pokemons por lote
 00.37 comando: git add . <enter> 
 00.38 comando: git commit -m "Antes de insertar por lote" <enter>
+01.51 comando: git checkout -- . <enter> Revierte el codigo hasta el ultimo comit.
+
+8-08 Resolucion - Insertar Pokemons por lote.
+1.32 hacemos las importaciones. Ponemos el cursor en el error y presionamos ctrl + . 
+02.18 Problemas que hay que solucionar.
+02.35 Los modulos estan encapsulados y hay que buscar la manera de exportarlos.
+03.20 exportamos el pokemon modulo.
+03.58 Ahora ya no hay problemas.
+
+8-09 Insertar multiplex registros simultaneamente
+03.33 tuve que arreglar el codigo con chatgpt.
+04.49 Otra forma mas optima.
+04.51 Una insercion con muchas entradas pero solo es una insercion en la bd.
+05.08 650 pokemons bien por ahora.

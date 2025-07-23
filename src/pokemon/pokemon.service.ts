@@ -23,8 +23,32 @@ export class PokemonService {
     }
   }
 
+  /*
   findAll() {
     return `This action returns all pokemon`;
+  }
+*/
+
+  async findAll() {
+    try {
+      // Realiza la consulta a la base de datos y espera el resultado
+      const pokemons: Pokemon[] = await this.pokemonModel.find();
+
+      // Si no hay registros, podrías retornar un array vacío o lanzar una advertencia (opcional)
+      if (!pokemons || pokemons.length === 0) {
+        console.warn('No se encontraron Pokémon en la base de datos.');
+        return [];
+      }
+
+      // Retorna los registros obtenidos
+      return { msg: 'Pokemons en bd', cdpokemons: pokemons.length, data: pokemons };
+    } catch (error) {
+      // Imprime el error en consola (útil para debugging)
+      console.error('Error al consultar los Pokémon:', error);
+
+      // Lanza una excepción HTTP 500 para que el cliente sepa que hubo un problema en el servidor
+      throw new InternalServerErrorException('Error interno al obtener los Pokémon.');
+    }
   }
 
   async findOne(term: string) {
